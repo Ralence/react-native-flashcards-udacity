@@ -7,10 +7,16 @@ import DeckList from '../Components/DeckList/DeckList';
 import AddDeck from '../Components/AddDeck/AddDeck';
 import AddCard from '../Components/AddQuestion/AddQuestion';
 import DeckView from '../Components/DeckView/DeckView';
+import QuizView from '../Components/QuizView/QuizView';
 
 const TabNavigator = createBottomTabNavigator({
     Decks: DeckList,
-    Add: AddDeck,
+    Add: {
+        screen: AddDeck,
+        navigationOptions: {
+            title: "Add Deck"
+        }
+    },
 },
     {
         defaultNavigationOptions: ({ navigation }) => ({
@@ -53,6 +59,12 @@ const AppNav = createStackNavigator(
             screen: AddCard,
             navigationOptions: {
                 title: "Add New Question"
+            }
+        },
+        QuizView: {
+            screen: QuizView,
+            navigationOptions: {
+                title: "Start Quiz"
             }
         }
     }

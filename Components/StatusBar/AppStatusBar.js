@@ -4,7 +4,7 @@ import { Constants } from "expo";
 
 export default function UdaciStatusBar({ backgroundColor, ...props }) {
     return (
-        <View style={{ backgroundColor, height: 20 }}>
+        <View style={{ backgroundColor, height: StatusBar.currentHeight }}>
             <StatusBar translucent backgroundColor={backgroundColor} {...props} />
         </View>
     )

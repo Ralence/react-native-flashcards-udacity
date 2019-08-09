@@ -4,13 +4,15 @@ import { createStackNavigator } from 'react-navigation';
 import DeckView from '../DeckView/DeckView';
 
 const DeckListItem = ({ deckName, numberOfCards, navigation }) => {
-
     return (
         <TouchableOpacity
             style={styles.deckCard}
-            onPress={() => navigation.navigate('DeckView')}>
+            onPress={() => navigation.navigate('DeckView', {
+                deckName,
+                numberOfCards
+            })}>
             <Text style={styles.deckName}>{deckName}</Text>
-            <Text style={styles.cardsNum} >{numberOfCards} cards</Text>
+            <Text style={styles.cardsNum} >{numberOfCards} {numberOfCards === 1 ? 'card' : 'cards'}</Text>
         </TouchableOpacity>
     )
 };

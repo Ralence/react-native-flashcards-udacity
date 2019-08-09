@@ -1,20 +1,29 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './store/reducers/reducers';
+
 import { AppNavigation } from './Navigation/config';
-import FCApp from './Components/FlashcardApp/FlashcardApp'
-import AddDeck from './Components/AddDeck/AddDeck';
-import DeckList from './Components/DeckList/DeckList';
-import DashBoard from './Components/DashBoard/DashBoard';
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import AppStatusBar from './Components/StatusBar/AppStatusBar';
+import { setLocalNotification } from './utils/notifications'
+import { AsyncStorage } from 'react-native'
+
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 class App extends React.Component {
+
+  componentDidMount() {
+    setLocalNotification()
+  }
+
   render() {
-
     return (
-
-      <AppNavigation />
-
-
+      <Provider store={store}>
+        <AppStatusBar backgroundColor="#006cfa" />
+        <AppNavigation />
+      </Provider>
     )
   }
 }
