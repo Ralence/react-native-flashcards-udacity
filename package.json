@@ -8,8 +8,11 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-universe": "^1.0.7",
     "expo": "^34.0.1",
     "expo-permissions": "^6.0.0",
+    "prettier": "^1.18.2",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
@@ -26,5 +29,8 @@
   "devDependencies": {
     "babel-preset-expo": "^6.0.0"
   },
-  "private": true
+  "private": true,
+  "eslintConfig": {
+    "extends": "universe/native"
+  }
 }
